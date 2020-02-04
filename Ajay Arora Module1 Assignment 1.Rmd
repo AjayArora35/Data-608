@@ -44,6 +44,7 @@ summary(inc)
 Think a bit on what these summaries mean. Use the space below to add some more relevant non-visual exploratory information you think helps you understand this data:
 
 ```{r}
+inc <- na.omit(inc)
 
 # Insert your code here, create more chunks as necessary
 # n, nmiss, unique, mean, 5,10,25,50,75,90,95th percentiles
@@ -54,11 +55,17 @@ describe(inc)
 ```
 
 ```{r}
-#Which companies fall in the "middle" of the upper and lower boundaries described above?
-#The lower and upper boundaries were provided earlier, the following descriptive statistics provide the "middle", but only showing 10 rows for brevity.
-result <- (inc %>% dplyr::filter(Growth_Rate > 0.38 & Growth_Rate < 213.37)) 
-head(result, 10)
+#What is the growth rate by Industry?
+(inc %>% dplyr::filter(Growth_Rate >= 100) %>%
+  select(Rank, Name,Growth_Rate,Industry ,Employees ,City, State) %>%
+   group_by (Industry) %>%
+   mutate(mean_growth_rate = mean(Growth_Rate)) %>%
+   mutate(min_growth_rate = min(Growth_Rate)) %>%
+   mutate(max_growth_rate = max(Growth_Rate)))
 
+
+#Standard Deviation of Growth_Rate
+sd(inc$Growth_Rate)
 ```
 
 ```{r}
@@ -70,9 +77,17 @@ head(result, 10)
 ```
 
 ```{r}
-#Which companies fall in the "middle" of the lower and upper boundaries?
-result1 <- (inc %>% dplyr::filter(Revenue > 2.40e+06 & Revenue < 3.80e+09)) 
-head(result1, 10)
+#What is the Revenue by Industry?
+(inc %>% 
+  select(Rank, Name,Industry ,Revenue, Employees ,City, State) %>%
+   group_by (Industry) %>%
+   mutate(mean_rev = mean(Revenue)) %>%
+   mutate(median_rev = median(Revenue)) %>%
+   mutate(min_rev = min(Revenue)) %>%
+   mutate(max_rev = max(Revenue)))
+
+#Standard Deviation of Revenue
+sd(inc$Revenue)
 ```
 
 ```{r}
@@ -89,6 +104,18 @@ result3 <- inc %>%
            dplyr::group_by(Industry) %>% 
            dplyr::summarise(n()) 
 result3
+
+```
+
+```{r}
+#What are median, mean, etc. for employees?
+(inc %>% 
+  select(Rank, Name,Industry ,Revenue, Employees ,City, State) %>%
+   group_by (Industry) %>%
+   mutate(mean_employee = mean(Employees)) %>%
+   mutate(min_employee = min(Employees)) %>%
+   mutate(max_employee = max(Employees)) %>%
+   mutate(sum_employee = sum(Employees)))
 
 ```
 
