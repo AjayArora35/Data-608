@@ -123,7 +123,8 @@ result3
 
 Create a graph that shows the distribution of companies in the dataset by State (ie how many are in each state). There are a lot of States, so consider which axis you should use. This visualization is ultimately going to be consumed on a 'portrait' oriented screen (ie taller than wide), which should further guide your layout choices.
 
-```{r}
+
+```{r fig.height = 10, fig.width = 10}
 
 # Answer Question 1 here
 
@@ -133,12 +134,12 @@ result4 = inc %>%
   arrange(desc(n))
 
 
-graph1 <- ggplot(data = result4,aes(x=reorder(State, n), y=n, fill = n, )) + 
-  theme(legend.position = "none", axis.text.y = element_text(size=6), axis.text.x = element_text(size=7)) +
+graph1 <- ggplot(data = result4,aes(x=reorder(State, n), y=n, fill = "lightblue", )) + 
+  theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8), panel.background = element_blank()) + 
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result4$n)), position = position_dodge(width = 0.5), size = 2.4,   label.padding = unit(0.04, "lines"), label.size = 0.15, inherit.aes = TRUE)+
-  labs(title = "Distribution By States", x = "States", y = "Distribution")+
-  coord_flip()
+  geom_label(aes(label=(result4$n)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  labs(title = "Distribution By States", x = "States", y = "Distribution of Companies")+ 
+  coord_flip() 
 graph1
 ```
 
@@ -146,7 +147,7 @@ graph1
 
 Lets dig in on the state with the 3rd most companies in the data set. Imagine you work for the state and are interested in how many people are employed by companies in different industries. Create a plot that shows the average and/or median employment by industry for companies in this state (only use cases with full data, use R's `complete.cases()` function.) In addition to this, your graph should show how variable the ranges are, and you should deal with outliers.
 
-```{r}
+```{r fig.height = 10, fig.width = 10}
 
 # Answer Question 2 here
 #Retrieve the top 3 states
@@ -169,10 +170,10 @@ result6
 
 
 
-graph2 <- ggplot(result6, aes(x=reorder(result6$Industry, result6$median), y=result6$median, fill = result6$median, )) + 
-  theme(legend.position = "none", axis.text.y = element_text(size=6), axis.text.x = element_text(size=7)) +
+graph2 <- ggplot(result6, aes(x=reorder(result6$Industry, result6$median), y=result6$median, fill = "lightblue", )) + 
+  theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8),  panel.background = element_blank()) +
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result6$median)), position = position_dodge(width = 0.5), size = 2.4,   label.padding = unit(0.04, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  geom_label(aes(label=(result6$median)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
   labs(title = "Distribution By Industries", x = "Industries", y = "Median")+
   coord_flip()
 graph2
@@ -194,10 +195,10 @@ result7 = inc[complete.cases(inc),] %>%
 
 result7
 
-graph3 <- ggplot(result7, aes(x=reorder(result7$Industry, result7$Revenue_per_Employee), y=result7$Revenue_per_Employee, fill = result7$Revenue_per_Employee, )) + 
-  theme(legend.position = "none", axis.text.y = element_text(size=6), axis.text.x = element_text(size=7)) +
+graph3 <- ggplot(result7, aes(x=reorder(result7$Industry, result7$Revenue_per_Employee), y=result7$Revenue_per_Employee, fill = "lightblue", )) + 
+  theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8),  panel.background = element_blank()) +
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result7$Employees)), position = position_dodge(width = 0.5), size = 2.4,   label.padding = unit(0.04, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  geom_label(aes(label=(result7$Employees)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
   labs(title = "Distribution By Industries -- Revenue Per Employee", x = "Industries", y = "Revenue Per Employee")+
   coord_flip()
 graph3
