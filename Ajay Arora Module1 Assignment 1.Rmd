@@ -184,7 +184,7 @@ graph2
 
 Now imagine you work for an investor and want to see which industries generate the most revenue per employee. Create a chart that makes this information clear. Once again, the distribution per industry should be shown.
 
-```{r}
+```{r fig.height = 10, fig.width = 10}
 
 # Answer Question 3 here
 
