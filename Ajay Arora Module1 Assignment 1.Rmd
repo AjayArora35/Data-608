@@ -1,5 +1,6 @@
 ---
 title: "R Notebook"
+author: Ajay Arora
 output:
   html_document: default
   html_notebook: default
@@ -9,7 +10,9 @@ output:
 
 
 #References:
+
 ##https://www.rdocumentation.org/packages/psych/versions/1.9.12.31/topics/describe
+
 ##https://github.com/AjayArora35/Data-607-Final-Project  
 
 
