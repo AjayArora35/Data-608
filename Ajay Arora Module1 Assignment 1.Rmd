@@ -140,8 +140,8 @@ result4 = inc %>%
 graph1 <- ggplot(data = result4,aes(x=reorder(State, n), y=n, fill = "lightblue", )) + 
   theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8), panel.background = element_blank()) + 
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result4$n)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
-  labs(title = "Distribution By States", x = "States", y = "Distribution of Companies")+ 
+  #geom_label(aes(label=(result4$n)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  labs(title = "Distribution By States", x = "States", y = "Number of Companies")+ 
   coord_flip() 
 graph1
 ```
@@ -176,8 +176,8 @@ result6
 graph2 <- ggplot(result6, aes(x=reorder(result6$Industry, result6$median), y=result6$median, fill = "lightblue", )) + 
   theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8),  panel.background = element_blank()) +
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result6$median)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
-  labs(title = "Distribution By Industries", x = "Industries", y = "Median")+
+  #geom_label(aes(label=(result6$median)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  labs(title = "Distribution By Industries for NY", x = "Industries", y = "Average number of employees for NY")+
   coord_flip()
 graph2
 
@@ -201,7 +201,7 @@ result7
 graph3 <- ggplot(result7, aes(x=reorder(result7$Industry, result7$Revenue_per_Employee), y=result7$Revenue_per_Employee, fill = "lightblue", )) + 
   theme(legend.position = "none", axis.text.y = element_text(size=8), axis.text.x = element_text(size=8),  panel.background = element_blank()) +
   geom_bar(stat = "identity") + 
-  geom_label(aes(label=(result7$Employees)), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
+  #geom_label(aes(label=paste((result7$Employees), " Total EEs", sep = "")), position = position_dodge(width = 0.5), size = 3.0,   label.padding = unit(0.08, "lines"), label.size = 0.15, inherit.aes = TRUE)+
   labs(title = "Distribution By Industries -- Revenue Per Employee", x = "Industries", y = "Revenue Per Employee")+
   coord_flip()
 graph3
