@@ -4,6 +4,5 @@ numpy
 bokeh
 dill
 flask
-jinja2
-pip
+requests
 simplejson
