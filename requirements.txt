@@ -109,7 +109,7 @@ mccabe==0.6.1
 #menuinst==1.4.16
 mistune==0.8.4
 mizani==0.3.3
-mkl-fft==1.0.14
+#mkl-fft==1.0.14
 mkl-service==2.3.0
 mock==3.0.5
 more-itertools==5.0.0
