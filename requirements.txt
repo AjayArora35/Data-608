@@ -35,7 +35,7 @@ colorcet==2.0.2
 colorlover==0.3.0
 comtypes==1.1.7
 conda==4.8.2
-conda-build==3.18.9
+#conda-build==3.18.9
 conda-package-handling==1.6.0
 conda-verify==3.4.2
 configparser==4.0.2
