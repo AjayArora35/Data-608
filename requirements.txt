@@ -160,7 +160,7 @@ pycurl==7.43.0.2
 pyflakes==2.1.1
 Pygments==2.4.2
 pylint==1.9.2
-pyodbc==4.0.27
+#pyodbc==4.0.27
 pyOpenSSL==19.0.0
 pyparsing==2.4.2
 pyproj==1.9.6
