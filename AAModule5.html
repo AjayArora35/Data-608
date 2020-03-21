@@ -1,0 +1,145 @@
+<html>
+
+<!--
+    
+    Note to Students:
+        This is a very short introduction to using Javascript in the browser.
+        To see this as a webpage, you have to start a *Local Web Server*. There are many ways to do this: since you all have python installed, we will use python.
+        - Open terminal
+        - 'cd' into the directory where this html file is (js_in_webpage.html)
+        - Type the following into the terminal and hit 'enter':
+            python -m SimpleHTTPServer
+            your server should read something like: Serving HTTP on 0.0.0.0 port 8000 ...
+        - now go to any browser and type in the HTTP address and the filename: something like:
+            http://0.0.0.0:8000/js_in_webpage.html
+            or
+            http://localhost:8000/js_in_webpage.html
+        
+        - Congrats: you now have a local HTTP server running. Now, every time you change this file and save it, when you reload the browser you will see your changes!
+-->
+
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Ajay Arora Module 5</title></head>
+
+<body>
+
+
+<script type="text/javascript">
+
+// Here are some examples of things that you might want to do with Javascript
+
+// writing to a document directly
+
+//document.write('<p><b>While you are working in Javascript (or any language), it is really important to be able to debug. Some browsers offer very simple ways to see what is happening on a page.</b></p>');
+//document.write('<p>Chrome and Firefox in particular offer good Developer Tools and Javascript console access</p><br>');
+</script>
+
+<script type="text/javascript">
+
+// Find this bug in the console and fix it!
+
+//document.write('<p>These are really helpful for finding bugs!</p><br>');
+</script>
+
+
+<script type="text/javascript">
+
+function goBack() {
+  //window.history.back();
+  location.reload();
+}
+
+</script>
+
+
+<script type="text/javascript">
+
+function reverseFunction() {
+  var rf = prompt("Please enter a word to reverse", "Avengers");
+  if (rf != null) {
+    var result = ReverseString(rf);
+	alert(result);
+  }
+}
+
+
+function valueForMultiple() {
+  var rf = prompt("Please enter a number between 1-100 to generate the first 20 multiples", "10");
+  if (rf != null && rf >=1 && rf <= 100) {
+     CreateMultiples(rf);
+
+  }
+  else alert("Number not valid.  (1-100)");
+}
+
+
+function CreateMultiples(num)
+{
+var myArray = new Array();
+
+    var myTable= "<table><tr><td style='width: 100px; color: red;'>Col 1</td>";
+    myTable+= "<td style='width: 100px; color: red; text-align: right;'>Col 2</td>";
+    myTable+= "<td style='width: 100px; color: red; text-align: right;'>Col 3</td>";
+    myTable+="<td style='width: 100px; color: red; text-align: right;'>Col 4</td></tr>";
+
+    myTable+="<tr><td style='width: 100px;                   '>---------------</td>";
+    myTable+="<td     style='width: 100px; text-align: right;'>---------------</td>";
+    myTable+="<td     style='width: 100px; text-align: right;'>---------------</td>";
+    myTable+="<td     style='width: 100px; text-align: right;'>---------------</td></tr>";
+
+	myTable+="<tr>";
+	for(let x=1; x<=20; x++){
+    	myTable+="<td style='width: 100px;'>" + num*x + " </td>";
+    	if(x === 4 || x === 8 || x === 12 || x === 16)
+        myTable+="</tr>";
+    }
+
+   myTable+="</table>";
+   document.write(myTable);
+   document.write("<button onclick=\"goBack();\">Back to menu</button>");
+
+}
+
+function ReverseString(str) { 
+  
+    // Check input 
+    if(!str || str.length < 2 ||  
+            typeof str!== 'string') { 
+        return 'Not valid';  
+    } 
+      
+    // Take empty array revArray 
+    const revArray = []; 
+    const length = str.length - 1; 
+      
+    // Looping from the end 
+    for(let i = length; i >= 0; i--) { 
+        revArray.push(str[i]); 
+    } 
+      
+    // Joining the array elements 
+    return revArray.join(''); 
+} 
+
+</script>
+<p>
+<form>
+<p>Click buttons to demonstrate Module5 .</p>
+
+<button onclick="reverseFunction()">Reverse It</button>
+<button onclick="valueForMultiple()">Generate Multiples</button>
+
+<p id="Part1"></p>
+<p id="Part1a"></p>
+</form>
+</p>
+
+<div id="target"></div>
+
+
+
+
+</body>
+</html>
